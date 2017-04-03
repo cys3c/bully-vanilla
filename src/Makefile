@@ -7,6 +7,7 @@ W_ROOT	= `pwd`
 
 CFLAGS	+= -I$(W_ROOT) -I$(W_ROOT)/utils/ -I$(W_ROOT)/tls/
 CFLAGS	+= -I$(W_ROOT)/wps/ -I$(W_ROOT)/crypto/ -I$(W_ROOT)/common/
+CFLAGS	+= -DCONFIG_NO_RANDOM_POOL
 
 LDFLAGS += -lpcap -lssl -lcrypto
 
