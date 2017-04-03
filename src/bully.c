@@ -59,7 +59,6 @@
 #include "utils/wpa_debug.c"
 #include "utils/wpabuf.c"
 #include "crypto/sha256.c"
-#include "crypto/aes-cbc.c"
 #include "crypto/crypto_openssl.c"
 #include "wps/wps.c"
 #include "wps/wps_registrar.c"
@@ -751,7 +750,7 @@ restart:
 			break;
 		};
 
-		if (wps_registrar_add_pin(G->wdata->wps->registrar, NULL, pinstr, 8, 0)) {
+		if (wps_registrar_add_pin(G->wdata->wps->registrar, G->bssid, NULL, pinstr, 8, 0)) {
 			vprint("[X] Failed to add registrar pin '%s', exiting\n", pinstr);
 			return 6;
 		};

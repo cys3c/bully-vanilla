@@ -542,7 +542,7 @@ send_mx:
 	G->state++;
 	msg = wps_registrar_get_msg(G->wdata, &opcode);
 	if (msg) {
-		uint8 *buf = msg->ext_data;
+		uint8 *buf = msg->buf;
 		if (!buf)
 			buf = ((uint8*)msg)+sizeof(struct wpabuf);
 
