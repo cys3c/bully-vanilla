@@ -1838,8 +1838,9 @@ static struct wpabuf * wps_build_m2(struct wps_data *wps)
 	    wps_build_conn_type_flags(wps, msg) ||
 	    wps_build_config_methods_r(wps->wps->registrar, msg) ||
 	    wps_build_device_attrs(&wps->wps->dev, msg) ||
-	    wps_build_rf_bands(&wps->wps->dev, msg,
-			       wps->wps->rf_band_cb(wps->wps->cb_ctx)) ||
+	    /* Temporary workaround to prevent segfault */
+	    wps_build_rf_bands(&wps->wps->dev, msg, 0) ||
+		/*	       wps->wps->rf_band_cb(wps->wps->cb_ctx)) || */
 	    wps_build_assoc_state(wps, msg) ||
 	    wps_build_config_error(msg, WPS_CFG_NO_ERROR) ||
 	    wps_build_dev_password_id(msg, wps->dev_pw_id) ||
