@@ -8,9 +8,9 @@ install:
 
 include ../lib.rules
 
-CFLAGS += -DCONFIG_P2P
-CFLAGS += -DCONFIG_WPS_OOB
-CFLAGS += -DCONFIG_WPS_NFC
+#CFLAGS += -DCONFIG_P2P
+#CFLAGS += -DCONFIG_WPS_OOB
+#CFLAGS += -DCONFIG_WPS_NFC
 
 LIB_OBJS= \
 	http_client.o \
